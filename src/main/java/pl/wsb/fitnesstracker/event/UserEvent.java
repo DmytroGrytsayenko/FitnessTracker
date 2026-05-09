@@ -1,4 +1,4 @@
-package pl.wsb.fitnesstracker.userevent;
+package pl.wsb.fitnesstracker.event;
 
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
@@ -7,7 +7,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import pl.wsb.fitnesstracker.user.api.User;
-import pl.wsb.fitnesstracker.event.Event;
 
 @Entity
 @Table(name = "user_event")

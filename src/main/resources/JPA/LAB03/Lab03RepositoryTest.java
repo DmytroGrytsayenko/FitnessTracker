@@ -7,12 +7,12 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 
 import pl.wsb.fitnesstracker.event.Event;
-import pl.wsb.fitnesstracker.event.EventRepository;
 import pl.wsb.fitnesstracker.event.UserEvent;
 import pl.wsb.fitnesstracker.event.UserEventRepository;
 import pl.wsb.fitnesstracker.user.api.User;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -57,13 +57,13 @@ class Lab03RepositoryTest {
      */
     @Test
     void findUpcomingReturnsOnlyFutureEvents() {
-        Event past = new Event("Past Event", LocalDate.now().minusDays(1), "Warsaw");
-        Event future = new Event("Future Event", LocalDate.now().plusDays(1), "Krakow");
+        Event past = new Event("Past Event", LocalDateTime.now().minusDays(1), "Warsaw");
+        Event future = new Event("Future Event", LocalDateTime.now().plusDays(1), "Krakow");
         em.persist(past);
         em.persist(future);
         em.flush();
 
-        List<Event> result = eventRepository.findUpcoming(LocalDate.now());
+        List<Event> result = eventRepository.findUpcoming(LocalDateTime.now());
 
         assertThat(result).extracting(Event::getName).containsExactly("Future Event");
     }
