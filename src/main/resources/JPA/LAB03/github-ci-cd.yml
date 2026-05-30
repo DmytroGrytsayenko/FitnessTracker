@@ -3,7 +3,7 @@
 #
 # Testy podzielone są na stage'e zgodnie z laboratoriami:
 #   - lab02            -> DatabaseSchemaTest       (encje z LAB02)
-#   - lab03-entities   -> Lab03EntitiesTest        (encje z LAB03, STAGE 1)
+#   - lab03-entities   -> Lab03EntitiesTest        (encje z LAB03 + LAB03-kontynuacja)
 #
 # Stage'e testowe są niezależne (brak `needs:` między nimi), więc niepowodzenie
 # jednego nie przerywa pozostałych — widzisz pełny obraz, które laboratorium
@@ -48,7 +48,7 @@ jobs:
           retention-days: 7
 
   lab03-entities:
-    name: LAB03-1 — entities (Lab03EntitiesTest)
+    name: LAB03 — entities (Lab03EntitiesTest)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -61,10 +61,10 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Run LAB03-1 tests
+      - name: Run LAB03 tests
         run: mvn -B test -Dtest=Lab03EntitiesTest -DfailIfNoTests=false --file pom.xml
 
-      - name: Publish LAB03-1 test results
+      - name: Publish LAB03 test results
         if: always()
         uses: actions/upload-artifact@v5
         with:

@@ -1,4 +1,4 @@
-Laboratorium III - Pierwsze repozytorium JPA i proste zapytania - stan na 18.04.2026 09:00
+Laboratorium III - Pierwsze repozytorium JPA i proste zapytania - stan na 19.04.2026 16:15
 
 **Uwaga - Przed przystąpieniem do zadania należy mieć ukończone LAB01 oraz LAB02.**
 
@@ -6,7 +6,7 @@ W LAB02 zajmowaliśmy się **encjami** — czyli klasami Javy, które odpowiadaj
 w bazie. Dzisiaj po raz pierwszy dokładamy do tego **repozytorium** — czyli miejsce,
 przez które aplikacja **czyta i zapisuje** dane. Plan zajęć (1.5h):
 
-1. Dodanie dwóch nowych encji do modelu (~20 min).
+1. Dodanie trzech nowych encji do modelu (~20 min).
 2. Utworzenie pierwszego `JpaRepository` (~20 min).
 3. Napisanie dwóch prostych zapytań: jedno w JPQL, jedno w natywnym SQL (~40 min).
 4. Commit, push, weryfikacja GitHub Actions (~10 min).
@@ -181,10 +181,10 @@ System.out.println("Łącznie treningów: " + trainingRepository.countAllTrainin
 
 **Ocena 5:**
 - Nowe encje `WorkoutSession`, `Event`, `UserEvent` zdefiniowane razem z relacjami `@ManyToOne`.
-- `DatabaseSchemaTest` przechodzi lokalnie i na GitHub Actions.
+- `Lab03EntitiesTest` przechodzi lokalnie i na GitHub Actions.
 - Dodane **jedno `JpaRepository`** z co najmniej **dwoma zapytaniami `@Query`**:
-  - **minimum 1 zapytanie w natywnym SQL** (`nativeQuery = true`) — zgodnie z sekcją 4,
-  - oraz 1 zapytanie JPQL (zgodnie z sekcją 3).
+    - **minimum 1 zapytanie w natywnym SQL** (`nativeQuery = true`) — zgodnie z sekcją 4,
+    - oraz 1 zapytanie JPQL (zgodnie z sekcją 3).
 - Zielony build na GitHub Actions po wypchnięciu zmian.
 
 **Ocena 4:**
