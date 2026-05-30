@@ -33,7 +33,7 @@ class UserServiceImpl implements UserService, UserProvider {
 
     @Override
     public Optional<User> getUserByEmail(final String email) {
-        return userRepository.findByEmail(email);
+        return userRepository.searchByEmailFragment(email);
     }
 
     @Override
