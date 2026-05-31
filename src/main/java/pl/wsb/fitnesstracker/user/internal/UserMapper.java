@@ -10,4 +10,15 @@ class UserMapper {
     UserDto toUserDto(User user) {
         return new UserDto(user.getId(), user.getFirstName(), user.getLastName(), user.getBirthdate(), user.getEmail());
     }
+
+    // НОВЫЙ МЕТОД: превращаем DTO (из интернета) в Сущность (для базы данных)
+    User toEntity(UserDto userDto) {
+        // Создаем пользователя сразу передавая все данные в конструктор
+        return new User(
+                userDto.firstName(),
+                userDto.lastName(),
+                userDto.birthdate(),
+                userDto.email()
+        );
+    }
 }

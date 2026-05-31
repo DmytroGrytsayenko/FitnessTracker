@@ -1,4 +1,4 @@
 package pl.wsb.fitnesstracker.user.api;
 
-public record UserSimpleDto() {
+public record UserSimpleDto(String firstName, String lastName) {
 }

@@ -28,12 +28,11 @@ interface UserRepository extends JpaRepository<User, Long> {
     }
 
     /**
-     * 3. Wyszukuje użytkowników, którzy są starsi niż podany wiek.
+     * 3. Wyszukuje użytkowników, którzy urodzili się wcześniej niż podana data.
      */
-    default List<User> searchUsersOlderThan(int minAge) {
-        LocalDate currentDate = LocalDate.now();
+    default List<User> findUsersBornBefore(java.time.LocalDate date) {
         return findAll().stream()
-                .filter(user -> user.getBirthdate() != null && Period.between(user.getBirthdate(), currentDate).getYears() > minAge)
-                .collect(Collectors.toList());
+                .filter(user -> user.getBirthdate() != null && user.getBirthdate().isBefore(date))
+                .toList();
     }
 }
